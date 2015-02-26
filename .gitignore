@@ -4,3 +4,5 @@ node_modules/
 # WebStorm customization files
 .idea/
 
+# application build files
+build/
