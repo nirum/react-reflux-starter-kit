@@ -5,9 +5,10 @@
 // Load gulp and other modules
 var gulp = require('gulp');
 var del = require('del');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 var stylus = require('gulp-stylus');
-var babel = require("gulp-babel");
-var concat = require("gulp-concat");
+var babelify = require("babelify");
 
 /**
  * Filepaths
@@ -18,16 +19,16 @@ var bases = {
 };
 
 var paths = {
-    scripts: ['js/**/*.js'],
-    styles: ['css/**/*.styl'],
-    html: ['index.html']
+    app: ['./' + bases.app + 'js/main.jsx'],
+    styles: [bases.app + 'css/**/*.styl'],
+    html: [bases.app + 'index.html']
 };
 
 /**
  * Stylus => CSS
  */
 gulp.task('styles', function () {
-    gulp.src(paths.styles, {cwd: bases.app})
+    gulp.src(paths.styles)
         .pipe(stylus({
             compress: true
         }))
@@ -35,12 +36,13 @@ gulp.task('styles', function () {
 });
 
 /**
- * JSX => JS
+ * JSX => Browserify => JS
  */
 gulp.task('scripts', function () {
-    gulp.src(paths.scripts, {cwd: bases.app})
-        .pipe(concat("bundle.js"))
-        .pipe(babel())
+    browserify(paths.app)
+        .transform(babelify)
+        .bundle()
+        .pipe(source('bundle.js'))
         .pipe(gulp.dest(bases.dist + 'js/'));
 });
 
@@ -48,7 +50,7 @@ gulp.task('scripts', function () {
  * HTML
  */
 gulp.task('html', function () {
-    gulp.src(paths.html, {cwd: bases.app})
+    gulp.src(paths.html)
         .pipe(gulp.dest(bases.dist));
 });
 

@@ -10,14 +10,11 @@
   "license": "MIT",
   "repository": "https://github.com/nirum/react-reflux-starter-kit",
   "devDependencies": {
+    "babelify": "^5.0.3",
     "browserify": "^9.0.3",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
-    "gulp-babel": "^4.0.0",
-    "gulp-concat": "^2.5.2",
-    "gulp-load-plugins": "^0.8.0",
     "gulp-stylus": "^2.0.1",
-    "reactify": "^1.0.0",
     "vinyl-source-stream": "^1.0.0"
   },
   "dependencies": {
