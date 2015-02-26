@@ -7,5 +7,14 @@
     "test": "jest"
   },
   "author": "Niru Maheswaranathan",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "https://github.com/nirum/react-reflux-starter-kit",
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  },
+  "dependencies": {
+    "react": "^0.12.2",
+    "react-router": "^0.12.4",
+    "reflux": "^0.2.5"
+  }
 }
