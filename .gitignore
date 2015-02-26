@@ -1,0 +1,6 @@
+# node modules / packages
+node_modules/
+
+# WebStorm customization files
+.idea/
+

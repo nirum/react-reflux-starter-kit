@@ -1,0 +1,11 @@
+{
+  "name": "react-reflux-starter-kit",
+  "version": "0.1.0",
+  "description": "A react + reflux starter application",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Niru Maheswaranathan",
+  "license": "MIT"
+}
