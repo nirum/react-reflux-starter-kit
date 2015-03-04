@@ -65,7 +65,7 @@ gulp.task('clean', function (callback) {
  * Default task
  */
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'scripts', 'html');
+    gulp.start('styles', 'scripts', 'html', 'watch');
 });
 
 /**
@@ -74,12 +74,12 @@ gulp.task('default', ['clean'], function() {
 gulp.task('watch', function() {
 
     // Watch .styl files
-    gulp.watch(bases.app + paths.styles, ['styles']);
+    gulp.watch(paths.styles, ['styles']);
 
     // Watch .js files
-    gulp.watch(bases.app + paths.scripts, ['scripts']);
+    gulp.watch(paths.app, ['scripts']);
 
     // Watch html files
-    gulp.watch(bases.app + paths.html, ['html']);
+    gulp.watch(paths.html, ['html']);
 
 });

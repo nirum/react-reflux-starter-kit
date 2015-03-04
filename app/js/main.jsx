@@ -1,19 +1,17 @@
 var React = require('react');
 var Router = require('react-router');
-var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
-var RouteHandler = Router.RouteHandler;
 var Reflux = require("reflux");
 
 var user = {
     name: "Niru",
-    date: Date().toString(),
+    date: new Date().toString(),
     age: 25
-}
+};
 
 var actions = Reflux.createActions(
     ["updateAge"]
-)
+);
 
 var store = Reflux.createStore({
     listenables: [actions],
@@ -26,7 +24,7 @@ var store = Reflux.createStore({
     getInitialState() {
         return {user};
     }
-})
+});
 
 var App = React.createClass({
 
@@ -36,7 +34,7 @@ var App = React.createClass({
         var u = this.state.user;
         return (
             <div className="container">
-                <h1>Hello, {u.name}!</h1>
+                <h1>Hello, {u.name}! :)</h1>
                 <h3>{u.date}</h3>
                 <h2>Age: <button onClick={actions.updateAge}>{u.age}</button></h2>
             </div>
